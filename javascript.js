@@ -1,88 +1,87 @@
-var buttons=document.getElementsByClassName('button');
-var display=document.getElementById('displaytext');
-var current=document.getElementById('history');
+var buttons = document.getElementsByClassName('button');
+var display = document.getElementById('displaytext');
+var current = document.getElementById('history');
 
-var operator=null;
-var operand1=0;
-var operand2=null;
-display.innerText=0;
+var operator = null;
+var operand1 = 0;
+var operand2 = null;
+display.innerText = 0;
 // current.innerText=0;
 
-for (var i = 0; i<buttons.length ; i++) {
-	buttons[i].addEventListener('click' , function(){ 
+for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function() {
 
-		var val=this.getAttribute('data-value') ;
+        var val = this.getAttribute('data-value');
 
-		if(val=='C'){
+        if (val == 'C') {
 
-			display.innerText ="0" ;
-			current.innerText=" ";
+            display.innerText = "0";
+            current.innerText = " ";
 
-		}else if(val=='='){
+        } else if (val == '=') {
 
-			operand2=parseFloat(displaytext.textContent) ;
+            operand2 = parseFloat(displaytext.textContent);
 
-			if(operator =='/' && operand2 == '0')
-           {
-              var result = "error";
-           }else{
-			result=eval(operand1 + " " + operator + "" + operand2) ;
-           }
+            if (operator == '/' && operand2 == '0') {
+                var result = "error";
+            } else {
+                result = eval(operand1 + " " + operator + " " + operand2);
+            }
 
-			displaytext.innerText=result;
-			current.innerText = current.textContent + "" + val + result;
+            displaytext.innerText = result;
+            current.innerText = current.textContent + "=" + result;
 
-		}else if(val=='+'){
+        } else if (val == '+') {
 
-			operator='+';
-			operand1=parseFloat(displaytext.textContent);
-			current.innerText = current.textContent + "" + val;
-			display.innerText =" " ;
+            operator = '+';
+            operand1 = parseFloat(displaytext.textContent);
+            current.innerText = current.textContent + "" + val;
+            display.innerText = "";
 
-		}else if(val=='-'){
+        } else if (val == '-') {
 
-			operator='-';
-			operand1=parseFloat(displaytext.textContent);
-			current.innerText = current.textContent + "" + val;
-			display.innerText =" " ;
+            operator = '-';
+            operand1 = parseFloat(displaytext.textContent);
+            current.innerText = current.textContent + "" + val;
+            display.innerText = "";
 
-		}else if(val=='*'){
-			operator='*';
-			operand1=parseFloat(displaytext.textContent);
-			current.innerText = current.textContent + "" + val;
-			display.innerText =" " ;
+        } else if (val == '*') {
+            operator = '*';
+            operand1 = parseFloat(displaytext.textContent);
+            current.innerText = current.textContent + "" + val;
+            display.innerText = "";
 
-		}else if(val=='/'){
+        } else if (val == '/') {
 
-			operator='/';
-			operand1=parseFloat(displaytext.textContent);
-			current.innerText = current.textContent + "" + val;
-			display.innerText =" " ;
+            operator = '/';
+            operand1 = parseFloat(displaytext.textContent);
+            current.innerText = current.textContent + "" + val;
+            display.innerText = "";
 
-		}else if(val=='%'){
+        } else if (val == '%') {
 
-			operator='%';
-			operand1=parseFloat(displaytext.textContent);
-			var result=operand1/100 ;
-			current.innerText = current.textContent/100;
-			displaytext.innerText=result;
+            operator = '%';
+            operand1 = parseFloat(displaytext.textContent);
+            var result = operand1 / 100;
+            current.innerText = current.textContent / 100;
+            displaytext.innerText = result;
 
-		}else if(val=='+/-'){
+        } else if (val == '+/-') {
 
-			display.innerText = -(display.innerText); 
-			current.innerText = -(current.textContent) ; 
+            display.innerText = -(display.innerText);
+            current.innerText = -(current.textContent);
 
-		}else{
-			display.innerText = +(display.innerText)+ val ;
-			current.innerText = current.textContent + "" + val;
-		}
+        } else {
+            display.innerText = (String(display.innerText) == "0" ? "" : display.innerText) + "" + val;
+            current.innerText = current.textContent + "" + val;
+        }
 
-	});
+    });
 }
 
 // document.addEventListener('keypress' , function (event){
 // 	var key= event.keyCode ;
-	
+
 // 	if(key==67){
 // 		display.innerText ="0";
 // 		current.innerText=" ";
