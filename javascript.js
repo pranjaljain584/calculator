@@ -26,7 +26,7 @@ for (var i = 0; i<buttons.length ; i++) {
            {
               var result = "error";
            }else{
-			result=eval(operand1 + " " + operator + "" + operand2) ;
+			result=eval(operand1 + " " + operator + " " + operand2) ;
            }
 
 			displaytext.innerText=result;
@@ -73,7 +73,7 @@ for (var i = 0; i<buttons.length ; i++) {
 			current.innerText = -(current.textContent) ; 
 
 		}else{
-			display.innerText = +(display.innerText)+ val ;
+			display.innerText = (String(display.innerText) == "0" ? "" : display.innerText) + "" + val ;
 			current.innerText = current.textContent + "" + val;
 		}
 
