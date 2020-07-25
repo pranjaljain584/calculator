@@ -1,5 +1,5 @@
 body{
-	background-image: linear-gradient(to bottom,#61C6F2 ,#818AD7);
+	background-image: linear-gradient(to right,#61C6F2 ,#818AD7);
 }
 
 .calculator{
@@ -7,7 +7,7 @@ body{
 	width: 380px;
 	margin-left: 35%;
 	margin-top: 5%;
-	margin-bottom: 20%;
+	/*margin-bottom: 20%;*/
 	background-color: #F2F2F2;
 	position: relative;
 	border-radius: 1.5rem;
